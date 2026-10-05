@@ -1,7 +1,19 @@
 # CAVE-MCTS
 
-CAVE-MCTS is a research implementation of heuristic-guided Monte Carlo Tree
-Search for Baaghchaal. It studies how the scale of a handcrafted evaluation
+CAVE-MCTS is a follow-up research follow-up research implementation of heuristic-guided Monte Carlo Tree
+Search for Baaghchaal. The prior selection rule combines an unbounded
+heuristic evaluation with a bounded UCT exploration term:
+
+$$
+\operatorname{UCT}_{\mathrm{enh}}(j) = \bar{E}_j + C_p\sqrt{\frac{2\ln n}{n_j}}.
+$$
+
+Because $\bar{E}_j$ can be much larger than the exploration bonus, changing
+$C_p$ has little effect on child selection. The search consequently behaves
+closer to greedy heuristic descent than to a balanced exploration-exploitation
+method.
+
+It studies how the scale of a handcrafted evaluation
 affects the exploration term in UCT and implements a calibrated,
 variance-aware alternative.
 

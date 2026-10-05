@@ -19,9 +19,7 @@ value scale. These results establish the scale mismatch; comparative playing str
 UCT assumes that rewards have a known bounded scale. The heuristic-guided rule
 used as the prior baseline is
 
-$$
-\operatorname{UCT}_{\mathrm{enh}}(j) = \bar{E}_j + C_p\sqrt{\frac{2\ln n}{n_j}},
-$$
+$$\operatorname{UCT}_{\mathrm{enh}}(j) = \bar{E}_j + C_p\sqrt{\frac{2\ln n}{n_j}}$$
 
 where $\bar{E}_j$ is the mean raw evaluation of child $j$. In Baaghchaal,
 $\bar{E}_j$ can span hundreds of points, whereas the exploration term is usually
