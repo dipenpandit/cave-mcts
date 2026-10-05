@@ -16,7 +16,6 @@ greedy exploitation no matter what C is set to.
 from __future__ import annotations
 
 import argparse
-import os
 import random
 from cavemcts.game import ONGOING, State, apply_move, legal_moves, outcome
 from cavemcts.heuristics import OnlineCalibrator

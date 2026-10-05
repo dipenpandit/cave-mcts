@@ -1,0 +1,187 @@
+{
+  "config": {
+    "games": 20,
+    "sims": 400,
+    "depth": 10,
+    "seed": 17,
+    "calibration": "/mnt/ssd/PhD Projects/cave-mcts/cavemcts/results/calibration.json"
+  },
+  "results": {
+    "random": {
+      "as tiger": {
+        "wins": 12,
+        "draws": 1,
+        "losses": 7,
+        "score": 0.625,
+        "ci": [
+          0.4094859016409731,
+          0.8002315669852935
+        ]
+      },
+      "as goat": {
+        "wins": 0,
+        "draws": 1,
+        "losses": 19,
+        "score": 0.025,
+        "ci": [
+          0.002615477056236784,
+          0.20045814216394975
+        ]
+      }
+    },
+    "baseline-uct (no heuristic)": {
+      "as tiger": {
+        "wins": 20,
+        "draws": 0,
+        "losses": 0,
+        "score": 1.0,
+        "ci": [
+          0.8388698745050667,
+          1.0
+        ]
+      },
+      "as goat": {
+        "wins": 2,
+        "draws": 17,
+        "losses": 1,
+        "score": 0.525,
+        "ci": [
+          0.32047722856190675,
+          0.7214662651633467
+        ]
+      }
+    },
+    "raw-heuristic-uct (prior work)": {
+      "as tiger": {
+        "wins": 15,
+        "draws": 3,
+        "losses": 2,
+        "score": 0.825,
+        "ci": [
+          0.6113705158377042,
+          0.933894902590589
+        ]
+      },
+      "as goat": {
+        "wins": 0,
+        "draws": 0,
+        "losses": 20,
+        "score": 0.0,
+        "ci": [
+          0.0,
+          0.16113012549493322
+        ]
+      }
+    },
+    "+ minmax normalisation": {
+      "as tiger": {
+        "wins": 18,
+        "draws": 2,
+        "losses": 0,
+        "score": 0.95,
+        "ci": [
+          0.7638641064874331,
+          0.9911187805671268
+        ]
+      },
+      "as goat": {
+        "wins": 1,
+        "draws": 5,
+        "losses": 14,
+        "score": 0.175,
+        "ci": [
+          0.06610509740941087,
+          0.3886294841622956
+        ]
+      }
+    },
+    "+ calibration": {
+      "as tiger": {
+        "wins": 20,
+        "draws": 0,
+        "losses": 0,
+        "score": 1.0,
+        "ci": [
+          0.8388698745050667,
+          1.0
+        ]
+      },
+      "as goat": {
+        "wins": 4,
+        "draws": 16,
+        "losses": 0,
+        "score": 0.6,
+        "ci": [
+          0.3865779423152061,
+          0.7811960325858074
+        ]
+      }
+    },
+    "+ variance-aware bonus": {
+      "as tiger": {
+        "wins": 19,
+        "draws": 1,
+        "losses": 0,
+        "score": 0.975,
+        "ci": [
+          0.7995418578360503,
+          0.9973845229437632
+        ]
+      },
+      "as goat": {
+        "wins": 5,
+        "draws": 10,
+        "losses": 5,
+        "score": 0.5,
+        "ci": [
+          0.2992949144298199,
+          0.7007050855701801
+        ]
+      }
+    },
+    "+ implicit minimax (alpha=0.3)": {
+      "as tiger": {
+        "wins": 20,
+        "draws": 0,
+        "losses": 0,
+        "score": 1.0,
+        "ci": [
+          0.8388698745050667,
+          1.0
+        ]
+      },
+      "as goat": {
+        "wins": 3,
+        "draws": 11,
+        "losses": 6,
+        "score": 0.425,
+        "ci": [
+          0.23828280814434913,
+          0.6358867106798908
+        ]
+      }
+    },
+    "CAVE (full, asymmetric C)": {
+      "as tiger": {
+        "wins": 20,
+        "draws": 0,
+        "losses": 0,
+        "score": 1.0,
+        "ci": [
+          0.8388698745050667,
+          1.0
+        ]
+      },
+      "as goat": {
+        "wins": 7,
+        "draws": 6,
+        "losses": 7,
+        "score": 0.5,
+        "ci": [
+          0.2992949144298199,
+          0.7007050855701801
+        ]
+      }
+    }
+  }
+}

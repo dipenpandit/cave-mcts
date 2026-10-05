@@ -60,25 +60,41 @@ q_r(s) = \sigma\bigl(\beta_r(E_r(s)-\mu_r)\bigr),
 $$
 
 The fitted value is bounded in $[0,1]$, which puts exploitation and exploration
-on a common scale. An online z-score calibrator is available when no fitted
-parameters are supplied.
+on a common scale. Values near $1$ indicate that the state is favorable to the
+role being evaluated, while values near $0$ indicate an unfavorable state.
+Calibration is applied when an EPT playout reaches its depth limit; terminal
+positions still use their known win, loss, or draw outcome. An online z-score
+calibrator is available when no fitted parameters are supplied.
+
+The parameters are role-specific because the same raw score does not have the
+same meaning for tigers and goats. Fitting $\beta_r$ controls how quickly the
+value changes as the evaluation changes, while $\mu_r$ sets the raw score that
+maps to the middle of the bounded range.
 
 ### 2.2 Dual-channel exploitation
 
-CAVE stores the sampled mean $\bar{Q}_j$ and an implicit-minimax heuristic
-value $V_j$ separately. Their blended exploitation value is
+CAVE stores two estimates for each child. The sampled mean $\bar{Q}_j$ is the
+average of the values returned by simulations and backed up through that child.
+The implicit-minimax value $V_j$ is a separate heuristic estimate propagated
+through the tree by taking the best available child value from the relevant
+player's perspective. Their blended exploitation value is
 
 $$
 \hat{Q}_j = (1-\alpha)\bar{Q}_j + \alpha V_j.
 $$
 
-This allows the heuristic to influence selection without replacing the
-statistical estimate.
+The parameter $\alpha$ controls the influence of the heuristic channel. This
+allows tactical information from the heuristic to influence selection without
+replacing or altering the statistical estimate collected from simulations.
+Whenever a value is compared at a parent node, it is expressed in that
+parent's role perspective; this is why backed-up values are flipped between
+the tiger and goat frames.
 
 ### 2.3 Variance-aware exploration
 
-Let $\hat{V}_j$ be the empirical variance of values backed up through child $j$.
-CAVE uses the role-specific bonus
+Let $\hat{V}_j$ be the empirical variance of values backed up through child $j$,
+computed from both the running sum and the running sum of squares. CAVE uses the
+role-specific bonus
 
 $$
 U_j = C_r\left[
@@ -86,9 +102,13 @@ U_j = C_r\left[
 \right].
 $$
 
-The complete selection score is $\hat{Q}_j+U_j$. A low-variance child loses its
-bonus quickly, while an unresolved branch retains exploration budget. The
-constant $C_r$ may differ between roles.
+The complete selection score is $\hat{Q}_j+U_j$. At each selection step, MCTS
+chooses the child with the largest score, so the bonus determines how much a
+child's uncertainty can compensate for a lower current value estimate. A
+low-variance child loses its bonus quickly, while an unresolved branch retains
+exploration budget. The final term also keeps rarely visited children from
+receiving zero bonus. The constant $C_r$ may differ between roles because the
+roles have different branching factors and search behavior.
 
 ## 3. Experimental design
 
