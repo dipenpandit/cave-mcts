@@ -5,7 +5,7 @@ Search for Baaghchaal. The prior selection rule combines an unbounded
 heuristic evaluation with a bounded UCT exploration term:
 
 $$
-\operatorname{UCT}_{\mathrm{enh}}(j) = \bar{E}_j + C_p\sqrt{\frac{2\ln n}{n_j}}.
+\text{UCT}_{\mathrm{enh}}(j) = \bar{E}_j + C_p\sqrt{\frac{2\ln n}{n_j}}.
 $$
 
 Because $\bar{E}_j$ can be much larger than the exploration bonus, changing
@@ -51,7 +51,7 @@ shows whether changing the exploration constant changes agent performance.
 The prior heuristic-guided rule selects child $j$ using
 
 $$
-\operatorname{UCT}_{\mathrm{enh}}(j) = \bar{E}_j + C_p\sqrt{\frac{2\ln n}{n_j}},
+\text{UCT}_{\mathrm{enh}}(j) = \bar{E}_j + C_p\sqrt{\frac{2\ln n}{n_j}},
 $$
 
 where $\bar{E}_j$ is an unnormalised heuristic value. Since the heuristic can
@@ -68,7 +68,7 @@ q_r(s) = \sigma\bigl(\beta_r(E_r(s)-\mu_r)\bigr),
 $$
 
 $$
-\operatorname{CAVE}(j) = (1-\alpha)\bar{Q}_j + \alpha V_j + C_r\left[
+\text{CAVE}(j) = (1-\alpha)\bar{Q}_j + \alpha V_j + C_r\left[
 \sqrt{\frac{2\hat{V}_j\ln n}{n_j}} + \frac{3\ln n}{n_j}\right].
 $$
 
@@ -95,8 +95,8 @@ part that changes between ablation variants.
 The root diagnostic uses
 
 $$
-\rho = \frac{\operatorname{spread}(\text{bonus})}
-{\operatorname{spread}(\text{exploitation})}.
+\rho = \frac{\text{spread}(\text{bonus})}
+{\text{spread}(\text{exploitation})}.
 $$
 
 For six mid-game positions and 300 simulations per position, the raw heuristic
