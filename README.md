@@ -1,6 +1,6 @@
 # CAVE-MCTS
 
-CAVE-MCTS is a follow-up research follow-up research implementation of heuristic-guided Monte Carlo Tree
+CAVE-MCTS is a follow-up research implementation of heuristic-guided Monte Carlo Tree
 Search for Baaghchaal. The prior selection rule combines an unbounded
 heuristic evaluation with a bounded UCT exploration term:
 
